@@ -1,0 +1,114 @@
+[gd_scene load_steps=19 format=3 uid="uid://0eledptlcnep"]
+
+[ext_resource type="Texture2D" uid="uid://db8gn6kjj3rw8" path="res://Nueva carpeta/ladders_KG_1.png" id="1_f4ibn"]
+[ext_resource type="Script" path="res://player.gd" id="1_u728r"]
+[ext_resource type="Texture2D" uid="uid://n2etao6gwy7g" path="res://Nueva carpeta/ladders_KG_2.png" id="2_xk44q"]
+[ext_resource type="Texture2D" uid="uid://cgdwcq4rpbu48" path="res://Nueva carpeta/ladders_KG_3.png" id="3_il5f2"]
+[ext_resource type="Texture2D" uid="uid://cbyi43wabpcpq" path="res://Nueva carpeta/ladders_KG_4.png" id="4_0h0e8"]
+[ext_resource type="Texture2D" uid="uid://uq3udavnieod" path="res://Nueva carpeta/Walking_KG_1.png" id="5_51klu"]
+[ext_resource type="Texture2D" uid="uid://davucgj4t7qd2" path="res://Nueva carpeta/Walking_KG_2.png" id="6_2n7gg"]
+[ext_resource type="Texture2D" uid="uid://duexxrh4drahy" path="res://Nueva carpeta/Walking_KG_3.png" id="7_3oh2v"]
+[ext_resource type="Texture2D" uid="uid://bvtwvnd0pi0f0" path="res://Nueva carpeta/Walking_KG_4.png" id="8_pn1s3"]
+[ext_resource type="Texture2D" uid="uid://cp3qdhqro1q1t" path="res://Nueva carpeta/Walking_KG_5.png" id="9_bigb2"]
+[ext_resource type="Texture2D" uid="uid://g1p0cos4pvka" path="res://Nueva carpeta/Walking_KG_6.png" id="10_ll2bc"]
+[ext_resource type="Texture2D" uid="uid://c8kirm5ws6xjv" path="res://Nueva carpeta/Walking_KG_7.png" id="11_cdcpr"]
+[ext_resource type="Texture2D" uid="uid://bhcdr1itgc3hb" path="res://Nueva Carpeta/BArriba.png" id="13_wnnhd"]
+[ext_resource type="Texture2D" uid="uid://codlf1dewalj1" path="res://Nueva Carpeta/BAbjao.png" id="14_4u4k3"]
+[ext_resource type="Texture2D" uid="uid://cl3igce2pl8d8" path="res://Nueva Carpeta/BIzq.png" id="15_b5dvh"]
+[ext_resource type="Texture2D" uid="uid://bbonl03bw1udg" path="res://Nueva Carpeta/BDer.png" id="16_f2hod"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xtsah"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_f4ibn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_xk44q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_il5f2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0h0e8")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_51klu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_2n7gg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_3oh2v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_3oh2v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_pn1s3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_bigb2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ll2bc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_cdcpr")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_brx6w"]
+radius = 9.56842
+height = 40.6421
+
+[node name="Player" type="Area2D"]
+position = Vector2(252, 328)
+script = ExtResource("1_u728r")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xtsah")
+animation = &"up"
+frame = 2
+frame_progress = 0.0752775
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.14962, 0.885782)
+shape = SubResource("CapsuleShape2D_brx6w")
+
+[node name="buttons" type="CanvasLayer" parent="."]
+
+[node name="Arriba" type="TouchScreenButton" parent="buttons"]
+position = Vector2(223, 562)
+scale = Vector2(0.75, 0.798)
+texture_normal = ExtResource("13_wnnhd")
+action = "move_up"
+
+[node name="Abajo" type="TouchScreenButton" parent="buttons"]
+position = Vector2(223, 611)
+scale = Vector2(0.75, 0.75)
+texture_normal = ExtResource("14_4u4k3")
+action = "move_down"
+
+[node name="Izquierda" type="TouchScreenButton" parent="buttons"]
+position = Vector2(175, 584)
+scale = Vector2(0.75, 0.75)
+texture_normal = ExtResource("15_b5dvh")
+action = "move_left"
+
+[node name="Derecha" type="TouchScreenButton" parent="buttons"]
+position = Vector2(271, 587)
+scale = Vector2(0.75, 0.75)
+texture_normal = ExtResource("16_f2hod")
+action = "move_right"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
