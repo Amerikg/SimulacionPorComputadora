@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmgu72nai07dh"]
+
+[ext_resource type="Script" path="res://paper.gd" id="1_bemnt"]
+[ext_resource type="ArrayMesh" uid="uid://dvn03a4mtijrq" path="res://assets/3D/new_book.res" id="2_gjbtk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fp2q6"]
+size = Vector3(0.2, 0.01, 0.2)
+
+[node name="Paper" type="Area3D"]
+script = ExtResource("1_bemnt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0929828, 0, 0, 0, -0.0249663, 0, 0, 0, 0.0703522, 0.00428836, -0.00160602, -0.0299567)
+gi_mode = 2
+gi_lightmap_scale = 1
+mesh = ExtResource("2_gjbtk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_fp2q6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://byjsk53sc7a2q"]
+
+[ext_resource type="Script" path="res://welcome_screen.gd" id="1_v75yb"]
+[ext_resource type="FontFile" uid="uid://buwy1x6n6ntxt" path="res://assets/fonts/Xolonium-Regular.ttf" id="2_25phs"]
+[ext_resource type="FontFile" uid="uid://c8jr53jpq0ce7" path="res://assets/fonts/Peaberry-Base.otf" id="3_aj6eq"]
+
+[sub_resource type="Gradient" id="Gradient_d68e7"]
+offsets = PackedFloat32Array(0.267241, 1)
+colors = PackedColorArray(0.552941, 0.854902, 0.980392, 1, 0.215686, 0.117647, 0.52549, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_sbc6n"]
+gradient = SubResource("Gradient_d68e7")
+
+[node name="WelcomeScreen" type="Node2D"]
+position = Vector2(2, 2)
+script = ExtResource("1_v75yb")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(4.49923, 15.8483)
+texture = SubResource("GradientTexture1D_sbc6n")
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(0.996078, 0.478431, 0.129412, 1)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 517.0
+offset_top = 97.0
+offset_right = 631.0
+offset_bottom = 120.0
+grow_horizontal = 2
+scale = Vector2(1, 0.99414)
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_25phs")
+theme_override_font_sizes/font_size = 75
+text = "Mision Escuela"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(0.933333, 0.870588, 0.266667, 1)
+offset_left = 432.0
+offset_top = 478.0
+offset_right = 688.0
+offset_bottom = 537.0
+scale = Vector2(1, 1.22075)
+theme_override_fonts/font = ExtResource("3_aj6eq")
+theme_override_font_sizes/font_size = 50
+text = "Comenzar"
+
+[connection signal="pressed" from="Button" to="." method="_on_start_button_pressed"]

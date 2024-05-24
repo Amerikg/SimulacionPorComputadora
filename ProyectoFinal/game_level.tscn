@@ -1,0 +1,254 @@
+[gd_scene load_steps=14 format=3 uid="uid://hudljjo834pj"]
+
+[ext_resource type="PackedScene" uid="uid://xwjvtmkv2m31" path="res://edificios.tscn" id="1_f1nkb"]
+[ext_resource type="Script" path="res://game_level.gd" id="1_kedtj"]
+[ext_resource type="PackedScene" uid="uid://cypyoegj6hdm5" path="res://jardinera.tscn" id="2_04xfb"]
+[ext_resource type="Texture2D" uid="uid://6csieyxlet8v" path="res://assets/botones/BArriba.png" id="2_h60g3"]
+[ext_resource type="Texture2D" uid="uid://vjdpeyx2nthk" path="res://assets/botones/BDer.png" id="3_arcw5"]
+[ext_resource type="PackedScene" uid="uid://dwtprjxmnojx6" path="res://player.tscn" id="3_sef46"]
+[ext_resource type="Texture2D" uid="uid://cremq2lmm4lua" path="res://assets/botones/BAbjao.png" id="4_gwxq0"]
+[ext_resource type="PackedScene" uid="uid://dmgu72nai07dh" path="res://paper.tscn" id="4_lmqti"]
+[ext_resource type="Texture2D" uid="uid://tt72aqvlr6y5" path="res://assets/botones/BIzq.png" id="5_c2nnh"]
+[ext_resource type="PackedScene" uid="uid://cvt3lqrjkehtg" path="res://cans.tscn" id="6_cnwqc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_soeho"]
+size = Vector3(15, 0.5, 15)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ist1t"]
+albedo_color = Color(0.223529, 0.223529, 0.223529, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_n7cb5"]
+material = SubResource("StandardMaterial3D_ist1t")
+size = Vector3(15, 0.5, 15)
+
+[node name="GameLevel" type="Node3D"]
+script = ExtResource("1_kedtj")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.998471, -1.751e-13, 0.0552813, -0.0552749, 0.0152187, 0.998355, -0.000841309, -0.999884, 0.0151954, 1.62096, 7.0559, 0.514549)
+
+[node name="SchoolEnviroment" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00407876, 0.0118046, 0.00332737)
+
+[node name="Floor" type="StaticBody3D" parent="SchoolEnviroment"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SchoolEnviroment/Floor"]
+shape = SubResource("BoxShape3D_soeho")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SchoolEnviroment/Floor"]
+mesh = SubResource("BoxMesh_n7cb5")
+
+[node name="Edificios" type="Node3D" parent="SchoolEnviroment"]
+
+[node name="Edificios" parent="SchoolEnviroment/Edificios" instance=ExtResource("1_f1nkb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 4)
+
+[node name="Edificios2" parent="SchoolEnviroment/Edificios" instance=ExtResource("1_f1nkb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 7)
+
+[node name="Edificios3" parent="SchoolEnviroment/Edificios" instance=ExtResource("1_f1nkb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 6)
+
+[node name="Edificios4" parent="SchoolEnviroment/Edificios" instance=ExtResource("1_f1nkb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 5)
+
+[node name="Edificios5" parent="SchoolEnviroment/Edificios" instance=ExtResource("1_f1nkb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 5)
+
+[node name="Edificios6" parent="SchoolEnviroment/Edificios" instance=ExtResource("1_f1nkb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 5)
+
+[node name="Edificios7" parent="SchoolEnviroment/Edificios" instance=ExtResource("1_f1nkb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 1)
+
+[node name="Edificios8" parent="SchoolEnviroment/Edificios" instance=ExtResource("1_f1nkb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+
+[node name="Edificios9" parent="SchoolEnviroment/Edificios" instance=ExtResource("1_f1nkb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -2)
+
+[node name="Edificios10" parent="SchoolEnviroment/Edificios" instance=ExtResource("1_f1nkb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -3)
+
+[node name="Edificios11" parent="SchoolEnviroment/Edificios" instance=ExtResource("1_f1nkb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -4)
+
+[node name="Edificios12" parent="SchoolEnviroment/Edificios" instance=ExtResource("1_f1nkb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -4)
+
+[node name="Edificios13" parent="SchoolEnviroment/Edificios" instance=ExtResource("1_f1nkb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -5)
+
+[node name="Edificios14" parent="SchoolEnviroment/Edificios" instance=ExtResource("1_f1nkb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -6)
+
+[node name="Edificios15" parent="SchoolEnviroment/Edificios" instance=ExtResource("1_f1nkb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -7)
+
+[node name="Edificios16" parent="SchoolEnviroment/Edificios" instance=ExtResource("1_f1nkb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Edificios17" parent="SchoolEnviroment/Edificios" instance=ExtResource("1_f1nkb")]
+
+[node name="Edificios18" parent="SchoolEnviroment/Edificios" instance=ExtResource("1_f1nkb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Edificios19" parent="SchoolEnviroment/Edificios" instance=ExtResource("1_f1nkb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="Edificios20" parent="SchoolEnviroment/Edificios" instance=ExtResource("1_f1nkb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
+
+[node name="Edificios21" parent="SchoolEnviroment/Edificios" instance=ExtResource("1_f1nkb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+
+[node name="Edificios22" parent="SchoolEnviroment/Edificios" instance=ExtResource("1_f1nkb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+
+[node name="Edificios23" parent="SchoolEnviroment/Edificios" instance=ExtResource("1_f1nkb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 7)
+
+[node name="Edificios24" parent="SchoolEnviroment/Edificios" instance=ExtResource("1_f1nkb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 7)
+
+[node name="Edificios25" parent="SchoolEnviroment/Edificios" instance=ExtResource("1_f1nkb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 6)
+
+[node name="Edificios26" parent="SchoolEnviroment/Edificios" instance=ExtResource("1_f1nkb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 5)
+
+[node name="Edificios27" parent="SchoolEnviroment/Edificios" instance=ExtResource("1_f1nkb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 5)
+
+[node name="Edificios28" parent="SchoolEnviroment/Edificios" instance=ExtResource("1_f1nkb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 5)
+
+[node name="Edificios29" parent="SchoolEnviroment/Edificios" instance=ExtResource("1_f1nkb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 4)
+
+[node name="Edificios30" parent="SchoolEnviroment/Edificios" instance=ExtResource("1_f1nkb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.04938, 0.00176239, 3.00015)
+
+[node name="Edificios31" parent="SchoolEnviroment/Edificios" instance=ExtResource("1_f1nkb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -7)
+
+[node name="Edificios32" parent="SchoolEnviroment/Edificios" instance=ExtResource("1_f1nkb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.99993, 1.90735e-06, -6.05076)
+
+[node name="Edificios33" parent="SchoolEnviroment/Edificios" instance=ExtResource("1_f1nkb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -7)
+
+[node name="Edificios34" parent="SchoolEnviroment/Edificios" instance=ExtResource("1_f1nkb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.04166, 3.24249e-05, -5.99751)
+
+[node name="Jardineras" type="Node3D" parent="SchoolEnviroment"]
+
+[node name="Jardinera" parent="SchoolEnviroment/Jardineras" instance=ExtResource("2_04xfb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.3, 2)
+
+[node name="Jardinera2" parent="SchoolEnviroment/Jardineras" instance=ExtResource("2_04xfb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.3, 1)
+
+[node name="Jardinera3" parent="SchoolEnviroment/Jardineras" instance=ExtResource("2_04xfb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.3, -2)
+
+[node name="Jardinera4" parent="SchoolEnviroment/Jardineras" instance=ExtResource("2_04xfb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.3, -1)
+
+[node name="Jardinera5" parent="SchoolEnviroment/Jardineras" instance=ExtResource("2_04xfb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.3, 0)
+
+[node name="Player" parent="." instance=ExtResource("3_sef46")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.5, 0)
+
+[node name="Papers" type="Node3D" parent="."]
+
+[node name="Paper" parent="Papers" groups=["papers"] instance=ExtResource("4_lmqti")]
+transform = Transform3D(1, 0, 0, 0, 0.644524, -0.764584, 0, 0.764584, 0.644524, 1.4132, 0.597644, -6.81419)
+
+[node name="Paper2" parent="Papers" groups=["papers"] instance=ExtResource("4_lmqti")]
+transform = Transform3D(-0.449974, 0.682805, 0.575587, 0, 0.644524, -0.764584, -0.893042, -0.344043, -0.290019, 4.2, 0.5, -6.234)
+
+[node name="Paper3" parent="Papers" groups=["papers"] instance=ExtResource("4_lmqti")]
+transform = Transform3D(0.267676, -0.736684, -0.621005, 0, 0.644524, -0.764584, 0.963509, 0.204661, 0.172523, 7.00811, 0.597644, 6.58025)
+
+[node name="Paper4" parent="Papers" groups=["papers"] instance=ExtResource("4_lmqti")]
+transform = Transform3D(1, 0, 0, 0, 0.644524, -0.764584, 0, 0.764584, 0.644524, -1.90211, 0.597644, 6.06316)
+
+[node name="Paper5" parent="Papers" groups=["papers"] instance=ExtResource("4_lmqti")]
+transform = Transform3D(-0.192625, -0.750265, -0.632454, 0, 0.644524, -0.764584, 0.981273, -0.147278, -0.124151, -4.54165, 0.53783, 6.46363)
+
+[node name="Paper6" parent="Papers" groups=["papers"] instance=ExtResource("4_lmqti")]
+transform = Transform3D(1, 0, 0, 0, 0.644524, -0.764584, 0, 0.764584, 0.644524, -1.66547, 0.597644, -6.81419)
+
+[node name="Paper7" parent="Papers" groups=["papers"] instance=ExtResource("4_lmqti")]
+transform = Transform3D(1, 0, 0, 0, 0.644524, -0.764584, 0, 0.764584, 0.644524, -5.19755, 0.597644, -6.81419)
+
+[node name="Cans" type="Node3D" parent="."]
+
+[node name="Cans" parent="Cans" instance=ExtResource("6_cnwqc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.551884, 0.563506, 4.92237)
+
+[node name="Cans2" parent="Cans" instance=ExtResource("6_cnwqc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9849, 0.563506, 0.324405)
+
+[node name="Cans3" parent="Cans" instance=ExtResource("6_cnwqc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.73576, 0.563506, 4.36371)
+
+[node name="Cans4" parent="Cans" instance=ExtResource("6_cnwqc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.38455, 0.563506, -3.72653)
+
+[node name="Cans5" parent="Cans" instance=ExtResource("6_cnwqc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.96191, 0.563506, -3.80476)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="Arriba" type="TouchScreenButton" parent="CanvasLayer2"]
+position = Vector2(1044, 456)
+scale = Vector2(1.422, 1.5)
+texture_normal = ExtResource("2_h60g3")
+action = "ui_up"
+
+[node name="Derecha" type="TouchScreenButton" parent="CanvasLayer2"]
+position = Vector2(1043, 545)
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("3_arcw5")
+action = "ui_right"
+
+[node name="Abajo" type="TouchScreenButton" parent="CanvasLayer2"]
+position = Vector2(15, 550)
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("4_gwxq0")
+action = "ui_down"
+
+[node name="izq" type="TouchScreenButton" parent="CanvasLayer2"]
+position = Vector2(16, 467)
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("5_c2nnh")
+action = "ui_left"
+
+[connection signal="paper_collected" from="Papers/Paper" to="." method="_on_paper_collected"]
+[connection signal="paper_collected" from="Papers/Paper2" to="." method="_on_paper_collected"]
+[connection signal="paper_collected" from="Papers/Paper3" to="." method="_on_paper_collected"]
+[connection signal="paper_collected" from="Papers/Paper4" to="." method="_on_paper_collected"]
+[connection signal="paper_collected" from="Papers/Paper5" to="." method="_on_paper_collected"]
+[connection signal="paper_collected" from="Papers/Paper6" to="." method="_on_paper_collected"]
+[connection signal="paper_collected" from="Papers/Paper7" to="." method="_on_paper_collected"]
+[connection signal="can_collected" from="Cans/Cans" to="." method="_on_can_collected"]
+[connection signal="can_collected" from="Cans/Cans2" to="." method="_on_can_collected"]
+[connection signal="can_collected" from="Cans/Cans3" to="." method="_on_can_collected"]
+[connection signal="can_collected" from="Cans/Cans4" to="." method="_on_can_collected"]
+[connection signal="can_collected" from="Cans/Cans5" to="." method="_on_can_collected"]
